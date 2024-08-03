@@ -1,0 +1,29 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "hey ther! here iam practicing react!!!",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "practice",
+    "namaste"
+  ],
+  "author": "nani prabhakar",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "postcss": "^8.4.40",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.7"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+  }
+}
