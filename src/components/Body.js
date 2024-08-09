@@ -1,14 +1,15 @@
 import RestroCard, { withDiscount } from "./RestroCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ShimmerUI } from "./shimmerUI";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import UserContext from "../utils/UserContext";
 export const Body = () => {
     const [originalList, setOriginalList] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [searchText, setSearchText] = useState("");
-
+    const{loggedInUser,setUserName}=useContext(UserContext);
+    //console.log(loggedInUser)
     useEffect(() => {
         fetchData();
     }, []);
@@ -55,8 +56,17 @@ export const Body = () => {
                         Top Rated Restaurants
                     </button>
                 </div>
+                <div className="p-10 m-4">
+                <label className="pr-2">USER:</label>
+                <input className="border border-solid border-black "
+                  value={loggedInUser}
+                  onChange={(e) => setUserName(e.target.value)}  >
+
+                </input>
+                </div>
+                
             </div>
-            <div className="top-rated-res"></div>
+            
             <div className="pl-16 res-container flex flex-wrap">
                 {filteredList.map((Restaurant) => (
                     <Link
