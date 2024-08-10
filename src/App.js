@@ -9,6 +9,9 @@ import ContactUs from "./components/ContactUs";
 import RestarauntMenu from "./components/RestarauntMenu";
 import { ShimmerUI } from "./components/shimmerUI";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 // Add a console log to debug
 console.log('Importing Grocery component from ./components/Grocery');
 
@@ -27,12 +30,14 @@ const MainApp = () => {
     },[])
 
     return (
+        <Provider store={appStore}>
         <UserContext.Provider value={{loggedInUser:UserName,setUserName}}>
             <div className="main-App">
             <Header />
             <Outlet />
             </div>
         </UserContext.Provider>
+        </Provider>
         
     );
 };
@@ -50,6 +55,11 @@ const appRouter = createBrowserRouter([
             {
                 path: "/about",
                 element: <About />,
+                errorElement: <Error />,
+            },
+            {
+                path: "/cart",
+                element: <Cart />,
                 errorElement: <Error />,
             },
             {

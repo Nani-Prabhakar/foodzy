@@ -1,6 +1,14 @@
 import { CDN_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+
 const ItemList=({items})=>{
     //console.log(items)
+    const dispatch=useDispatch();
+    const addItemHandler=(item)=>{
+        dispatch(addItem(item))
+        //console.log(store.items)
+    }
     return (
             <div >
                 {items.map((item)=><div key={item.card.info.id} className="p-2 m-2 border-gray-200 border-b-2  flex justify-between">
@@ -20,7 +28,7 @@ const ItemList=({items})=>{
                     </div>
                     <div className="w-3/12 p-4 ">
                         <div className="absolute px-10 py-20">
-                        <button type="button" className="py-2.5 px-5 me-2 mb-2 text-md  font-bold font-xl text-green-600 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">ADD</button>
+                        <button  onClick={()=>addItemHandler(item)} type="button" className="py-2.5 px-5 me-2 mb-2 text-md  font-bold font-xl text-green-600 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">ADD</button>
                         </div>
 
                         <img 
