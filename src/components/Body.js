@@ -1,6 +1,6 @@
 import RestroCard, { withDiscount } from "./RestroCard";
 import { useState, useEffect, useContext } from "react";
-import { ShimmerUI } from "./shimmerUI";
+import { ShimmerUI } from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
